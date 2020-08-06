@@ -49,3 +49,4 @@ print("You can connect to the following instances:")
 for reservation in instances['Reservations']:
     for instance in reservation['Instances']:
         print('ssh -i {keypair} ec2-user@{instance}'.format(keypair=keypair_path, instance=instance['PublicDnsName']))
+
