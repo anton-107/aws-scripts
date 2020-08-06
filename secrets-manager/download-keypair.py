@@ -19,7 +19,11 @@ get_secret_value_response = secrets_client.get_secret_value(
     SecretId=secret_name
 )
 
-os.remove(keypair_path)
+try:
+    os.remove(keypair_path)
+except:
+    pass
+
 file = open(keypair_path, 'w')
 file.write(get_secret_value_response['SecretString'])
 os.chmod(keypair_path, 0o400)
